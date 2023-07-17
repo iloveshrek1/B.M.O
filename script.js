@@ -37,67 +37,51 @@ document.getElementById('submit-button').addEventListener("click", function gree
   });
 
  
-
- 
   let currentState = 'selection';
 
-  document.getElementById('submit-button').addEventListener("click", function Fixhelping() {
+
+  document.getElementById('submit-button').addEventListener("click", function fixOrHelp(){
     let input_value = document.getElementById('input-text').value;
-    console.log("sucsses");
-    //current state for fix selection
-    let currentState = "Fixselection";
-    if (currentState === 'Fixselection') {
-      if (input_value === "xbox") {
-        document.getElementById('B.M.O').innerHTML = "Do you want to fix one or buy one?";
-    
-        // Dispatch custom event signaling the selection of "xbox"
-        const event = new CustomEvent('FixxboxSelected');
+    if(input_value === "buy"){
+      
+      console.log("1");
+    }
+
+    if(input_value === "fix"){
+      document.getElementById('B.M.O').innerHTML = "choose your consoles: xbox,playstation ,vr,pc"
+      document.getElementById('submit-button').addEventListener("click", function Fixhelping() {
+
+        let input_value = document.getElementById('input-text').value;
+        console.log("sucsses");
+        //current state for fix selection
+        let currentState = "Fixselection";
+        if (currentState === 'Fixselection') {
+          if (input_value === "xbox") {
+            document.getElementById('B.M.O').innerHTML = "Go to the nearest repair store or repair it yourself! (be careful!)";
+      
+          } else if (input_value === "playstation") {
+            document.getElementById('B.M.O').innerHTML = "Go to the nearest repair store or repair it yourself! (be careful!)";
+           
+           
+          } else if (input_value === "pc") {
+            document.getElementById('B.M.O').innerHTML = "Go to the nearest repair store or repair it yourself! (be careful!)";
+           
+          
+          } else if (input_value === "vr") {
+            document.getElementById('B.M.O').innerHTML = "Go to the nearest repair store or repair it yourself! (be careful!)";
+            
+           
+          }
+        }
         
-        document.dispatchEvent(event);
-      } else if (input_value === "playstation") {
-        document.getElementById('B.M.O').innerHTML = "Do you want to fix one or buy one?";
-        // Dispatch custom event signaling the selection of "playstation"
-        const event = new CustomEvent('FixplaystationSelected');
-        document.dispatchEvent(event);
-      } else if (input_value === "pc") {
-        document.getElementById('B.M.O').innerHTML = "Do you want to fix one or buy one?";
-        // Dispatch custom event signaling the selection of "pc"
-        const event = new CustomEvent('FixpcSelected');
-        document.dispatchEvent(event);
-      } else if (input_value === "vr") {
-        document.getElementById('B.M.O').innerHTML = "Do you want to fix one or buy one?";
-        // Dispatch custom event signaling the selection of "vr"
-        const event = new CustomEvent('FixvrSelected');
-        document.dispatchEvent(event);
-      }
-    }
-    
-    // Reset the input value
-    input_value = '';
-  });
-  //xbox functions
-  document.addEventListener('FixxboxSelected', function handleConsoleSelected(event) {
-    
-    currentState = 'fixSelection';
-  });
+        // Reset the input value
+        input_value = '';
+      });
+      
+      
+
+        }
+      });
   
-  document.addEventListener('FixplaystationSelected', function handleConsoleSelected(event) {
-    currentState = 'fixSelection';
-  });
-  
-  document.addEventListener('FixpcSelected', function handleConsoleSelected(event) {
-    currentState = 'fixSelection';
-  });
-  
-  document.addEventListener('FixvrSelected', function handleConsoleSelected(event) {
-    currentState = 'fixSelection';
-  });
-  
-  document.getElementById('submit-button').addEventListener("click", function handleFixAction(event) {
-    let input_value = document.getElementById('input-text').value;
-     
-    if (currentState === 'fixSelection' && input_value === "fix") {
-      document.getElementById('B.M.O').innerHTML = "Go to the nearest repair store or repair it yourself! (be careful!)";
-    }
-  });
+
   
